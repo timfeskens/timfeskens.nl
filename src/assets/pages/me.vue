@@ -32,7 +32,7 @@
 		<div class="bg part-5">
 			<div class="bg--color">
 		</div>
-		<span class="bg--title">I'm just creeping<span class="blink">|</span></span>
+		<span class="bg--title title-small">I'm just creeping.<span class="blink">|</span></span>
 		<div class="part-5--bottom"></div>
 		</div>
 
@@ -175,6 +175,11 @@ body, html {
 	.part-5 {
 		top: 400%;
 		background: linear-gradient(#628740, #a4cb46);
+
+
+		.title-small {
+			font-size: 4em;
+		}
 
 	&--bottom {
 		position: absolute;
