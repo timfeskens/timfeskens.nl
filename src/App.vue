@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <router-view></router-view>
-    <Main></Main>
+    <!-- <Main></Main> -->
   </div>
 </template>
 

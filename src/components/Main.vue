@@ -1,14 +1,12 @@
 <template>
 	<div class="home">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<div class="bg--container">
+		<div class="bg">
 			<div class="bg--color">
 		</div>
-		<span class="bg--title">Hi, I'm Tim<span class="blink">|</span></span>
+		<span class="bg--title">Hi, I'm Ti<router-link to="/me" class="bg--me">m</router-link><span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.container'">expand_more</i>
 		</div>
-		<i class="material-icons to-top" v-scroll-to="'.bg--container'">expand_less</i>
+		<i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i>
 		<div class="container">
 			<div class="expertise--title"> My Expertise </div>
 			<div class="expertise">
@@ -36,7 +34,7 @@
 						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
 					</div>
 				</div>
-				<i class="material-icons to-top--phone" v-scroll-to="'.bg--container'">expand_less</i>
+				<i class="material-icons to-top--phone" v-scroll-to="'.bg'">expand_less</i>
 			</div>
 		</div>
 	</div>
@@ -112,7 +110,7 @@
 		}
 	}
 
-	.bg--container {
+	.bg {
 		position: absolute;
 		top:0;
 		left:0;
@@ -127,7 +125,7 @@
 		flex-direction: column;
 		z-index: 2;
 
-		.bg--color {
+		&--color {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -148,6 +146,15 @@
 		@media only screen and (max-width: $tablet) {
         	text-align: center;
         }
+	}
+
+	.bg--me {
+		text-decoration: none;
+		cursor: auto;
+
+		&:hover, &:visited, &:active {
+			color: $tim--white;
+		}
 	}
 
 	.blink {
@@ -193,7 +200,6 @@
 		}
 	
 		&--b1, &--b2, &--b3 {
-			font-weight: $semi-bold;
 			font-size: 1.1em;
 			width: 20%;
 			color: $tim--gray;
