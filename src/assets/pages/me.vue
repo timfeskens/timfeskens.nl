@@ -67,7 +67,6 @@ body, html {
 		}
 
 		@media only screen and (max-width: $tablet) {
-           font-size: 5em;
 		   background: $tim--gray;
 		   border-radius: 46px;
 		   padding: 10px 26px;
@@ -126,6 +125,7 @@ body, html {
 		font-weight: $heavy;
 		color: $tim--white;
 		z-index: 3;
+		font-size: 4em;
 
 		@media only screen and (max-width: $tablet) {
         	text-align: center;
@@ -175,11 +175,6 @@ body, html {
 	.part-5 {
 		top: 400%;
 		background: linear-gradient(#628740, #a4cb46);
-
-
-		.title-small {
-			font-size: 4em;
-		}
 
 	&--bottom {
 		position: absolute;
