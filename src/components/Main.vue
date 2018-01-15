@@ -25,18 +25,19 @@
 					Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
 				</div>
 			</div>
-		<div class="about--title"> My Life </div>
-		<div class="about">
-			<div class="about__image"></div>
-			<div class="about__block">
-				<div class="about__block--1">
-				    Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
+			<div class="about--title"> My Life </div>
+			<div class="about">
+				<div class="about__image"></div>
+				<div class="about__block">
+					<div class="about__block--1">
+						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
+					</div>
+					<div class="about__block--2">
+						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
+					</div>
 				</div>
-				<div class="about__block--2">
-					Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
-				</div>
+				<i class="material-icons to-top--phone" v-scroll-to="'.bg--container'">expand_less</i>
 			</div>
-		</div>
 		</div>
 	</div>
 </template>
@@ -54,10 +55,18 @@
 		opacity: .4;
 		transition-duration: 500ms;
 
-		&:hover {
+		&:hover, &:focus {
 			opacity: 1.0;
 			transition-duration: 500ms;
 		}
+
+		@media only screen and (max-width: $tablet) {
+           font-size: 5em;
+		   background: $tim--gray;
+		   border-radius: 46px;
+		   padding: 10px 26px;
+		   margin-top: 100px;
+        }
 	}
 
 	.to-top {
@@ -71,9 +80,35 @@
 		opacity: .3;
 		transition-duration: 500ms;
 
-		&:hover {
+		&:hover, &:focus {
 			opacity: 1.0;
 			transition-duration: 500ms;
+		}
+
+		&--phone {
+			display: none;
+			font-size: 3em;
+			background: $tim--gray;
+			color: $tim--white;
+			border-radius: 46px;
+			width: 50px;
+			padding: 10px 26px;
+			margin: 25px auto 0;
+			cursor: pointer;
+			opacity: .3;
+
+			&:hover, &:focus {
+				opacity: 1.0;
+				transition-duration: 500ms;
+			}
+
+			@media only screen and (max-width: $tablet) {
+				display: block;
+			}
+		}
+
+		@media only screen and (max-width: $tablet) {
+           display: none;
 		}
 	}
 
@@ -108,10 +143,10 @@
 		font-size: 6em;
 		font-weight: $heavy;
 		color: $tim--white;
-        z-index: 3;
+		z-index: 3;
 
-        @media only screen and (max-width: 500px) {
-           color: blue;
+		@media only screen and (max-width: $tablet) {
+        	text-align: center;
         }
 	}
 
@@ -144,7 +179,11 @@
 		height: auto;
 		width: 100%;
         color: $tim--gray;
-        padding: 50px 0;
+		padding: 50px 0;
+		
+		@media only screen and (max-width: $tablet) {
+			flex-direction: column;
+        }
 		
 		&--title {
 			font-size: 2em;
@@ -158,10 +197,23 @@
 			font-size: 1.1em;
 			width: 20%;
 			color: $tim--gray;
+			text-align: justify;
+
+			@media only screen and (max-width: $tablet) {
+				width: 90%;
+				margin: 0 auto;
+				font-size: 1.3em;
+				padding-bottom: 25px;
+        	}
 
 			h2 {
 				font-size: 1.5rem;
 				padding-bottom: 50px;
+				text-align: center;
+
+				@media only screen and (max-width: $tablet) {
+					padding-bottom: 25px;
+        		}
 			}
 		}
 	}
@@ -195,10 +247,22 @@
 			flex-direction: row;
 			justify-content: space-around;
 
+			@media only screen and (max-width: $tablet) {
+				flex-direction: column;
+        	}
+
 			&--1, &--2 {
+				color: $tim--gray;
 				font-size: 1.1em;
 				text-align: justify;
 				width: 400px;
+
+				@media only screen and (max-width: $tablet) {
+					width: 90%;
+					padding-bottom: 25px;
+					margin: 0 auto;
+					font-size: 1.1em;
+        		}
 			}
 		}
 	}
@@ -206,17 +270,17 @@
 
 </style>
 <script>
-import Vue from 'vue'
-    new Vue({
-    created: function () {
-            window.addEventListener('keyup', this.myMethod)
-    },
-    methods: {
-        myMethod: function () {
-            console.log(this.keyCode);
-        }
-    }
-});
+// import Vue from 'vue'
+//     new Vue({
+//     created: function () {
+//             window.addEventListener('keyup', this.myMethod)
+//     },
+//     methods: {
+//         myMethod: function () {
+//             console.log(this.keyCode);
+//         }
+//     }
+// });
 
 
 </script>
