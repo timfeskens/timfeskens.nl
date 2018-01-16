@@ -3,7 +3,7 @@
 		<div class="bg">
 			<div class="bg--color">
 		</div>
-		<span class="bg--title">Hi, I'm Ti<router-link to="/me" class="bg--me">m</router-link><span class="blink">|</span></span>
+		<span class="bg--title">Hi, I'm Tim<router-link to="/easteregg" class="bg--easteregg">.</router-link><span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.container'">expand_more</i>
 		</div>
 		<i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i>
@@ -117,7 +117,7 @@
 		width: 100%;
 		overflow: hidden;
 		height: 100%;
-		background-image: url("../assets/images/laptop.jpeg");
+		background-image: url("../images/laptop.jpeg");
 		background-size: cover;
 		display: flex;
 		justify-content: center;
@@ -140,16 +140,24 @@
 	.bg--title {
 		font-size: 6em;
 		font-weight: $heavy;
+		text-align: center;
 		color: $tim--white;
 		z-index: 3;
+		overflow: hidden;
+		white-space: nowrap;
+		animation: typing 4s steps(40, end);
 
 		@media only screen and (max-width: $tablet) {
-        	text-align: center;
+			text-align: center;
+			animation: none;
+			overflow: auto;
+			white-space: initial;
         }
 	}
 
-	.bg--me {
+	.bg--easteregg {
 		text-decoration: none;
+		color: $tim--white;
 		cursor: auto;
 
 		&:hover, &:visited, &:active {
@@ -160,12 +168,6 @@
 	.blink {
   		animation: blink 1300ms infinite;
 		height: 1em;
-	}
-
-	@keyframes blink {
-		0% {opacity: 0}
-		49%{opacity: 0}
-		50% {opacity: 1}	
 	}
 
 	.container {
@@ -244,7 +246,7 @@
 			height: 200px;
 			width: 150px;
 			margin: 0 auto 50px;
-			background: url("../assets/images/tim.png") no-repeat center;
+			background: url("../images/tim.png") no-repeat center;
 			background-size: contain;
 		}
 
@@ -271,6 +273,17 @@
         		}
 			}
 		}
+	}
+	/* keyframes for animations */  
+	@keyframes blink {
+		0% {opacity: 0}
+		49%{opacity: 0}
+		50% {opacity: 1}	
+	}
+
+	@keyframes typing {
+		from { width: 0 }
+		to { width: 100% }
 	}
 }
 

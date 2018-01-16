@@ -1,12 +1,11 @@
 <template>
-	<div class="me">
+	<div class="easteregg">
 		<div class="bg part-1">
 			<div class="bg--color">
 		</div>
 		<span class="bg--title">Oh, hi there<span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.part-2'">expand_more</i>
 		</div>
-		<!-- <i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i> -->
 
 		<div class="bg part-2">
 			<div class="bg--color">
@@ -46,12 +45,12 @@
 body, html {
 	height: 100%;
 }
-.me {
+.easteregg {
 	height: auto;
 	font-family: 'Montserrat', sans-serif;
 	height: 100%;
 	overflow: hidden;
-	text-align: center; // test
+	text-align: center;
 
 	.to-bottom {
 		font-size: 4em;
@@ -101,7 +100,6 @@ body, html {
 		width: 100%;
 		overflow: hidden;
 		height: 100%;	
-		background: red; /* For browsers that do not support gradients */
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -193,6 +191,6 @@ body, html {
 
 <script>
 export default {
-  name: 'Me'
+  name: 'Easteregg'
 }
 </script>
