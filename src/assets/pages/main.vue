@@ -3,7 +3,10 @@
 		<div class="bg">
 			<div class="bg--color">
 		</div>
-		<span class="bg--title">Hi, I'm Tim<router-link to="/easteregg" class="bg--easteregg">.</router-link><span class="blink">|</span></span>
+		<div class="bg__title">
+			<span class="bg__title--text">Hi, I'm Tim<router-link to="/easteregg" class="bg--easteregg">.</router-link></span>
+			<span class="blink">|</span>
+		</div>
 		<i class="material-icons to-bottom" v-scroll-to="'.container'">expand_more</i>
 		</div>
 		<i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i>
@@ -136,25 +139,58 @@
 			z-index: 2;
 		}
 	}
-	
-	.bg--title {
-		font-size: 6em;
-		font-weight: $heavy;
-		text-align: center;
-		color: $tim--white;
-		z-index: 3;
-		overflow: hidden;
-		white-space: nowrap;
-		animation: typing 4s steps(40, end);
+
+	.bg__title {
+		display: flex;
+		flex-direction: row;
 
 		@media only screen and (max-width: $tablet) {
-			text-align: center;
-			animation: none;
-			overflow: auto;
-			white-space: initial;
-        }
-	}
+					display: block;
+					text-align: center;
+					z-index: 4;
+		}
 
+		&--text {
+			font-size: 6em;
+			font-weight: $heavy;
+			text-align: center;
+			color: $tim--white;
+			z-index: 3;
+			overflow: hidden;
+			white-space: nowrap;
+			animation: typing 3s steps(40, end);
+			animation-fill-mode: forwards;
+			width: 0;
+		
+			@keyframes typing {
+				from { width: 0 }
+				to { width: 100% }
+			}
+
+			@media only screen and (max-width: $tablet) {
+				overflow: hidden;
+				white-space: initial;
+				animation: none;
+				width: 100%;
+			}
+		}
+
+		.blink {
+			font-size: 6em;
+			font-weight: $heavy;
+			color: $tim--white;
+			z-index: 3;
+			animation: blink 1200ms infinite;
+			height: 1em;
+
+			@keyframes blink {
+				0% {opacity: 0}
+				49%{opacity: 0}
+				50% {opacity: 1}
+			}
+		}
+	}
+	
 	.bg--easteregg {
 		text-decoration: none;
 		color: $tim--white;
@@ -163,11 +199,6 @@
 		&:hover, &:visited, &:active {
 			color: $tim--white;
 		}
-	}
-
-	.blink {
-  		animation: blink 1300ms infinite;
-		height: 1em;
 	}
 
 	.container {
@@ -274,17 +305,7 @@
 			}
 		}
 	}
-	/* keyframes for animations */  
-	@keyframes blink {
-		0% {opacity: 0}
-		49%{opacity: 0}
-		50% {opacity: 1}	
-	}
-
-	@keyframes typing {
-		from { width: 0 }
-		to { width: 100% }
-	}
+	/* keyframes for animations */ 
 }
 
 </style>
