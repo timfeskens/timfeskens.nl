@@ -66,7 +66,7 @@ body, html {
 		}
 
 		@media only screen and (max-width: $tablet) {
-		   background: $tim--gray;
+		   background: $tim--main;
 		   border-radius: 46px;
 		   padding: 10px 26px;
 		   margin-top: 100px;
@@ -75,7 +75,7 @@ body, html {
 
 	.to-top--phone {
 		font-size: 3em;
-		background: $tim--gray;
+		background: $tim--main;
 		color: $tim--white;
 		border-radius: 46px;
 		width: 50px;
