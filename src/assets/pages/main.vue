@@ -76,7 +76,7 @@
 		}
 
 		@media only screen and (max-width: $tablet) {
-           font-size: 5em;
+           font-size: 3em;
 		   background: $tim--main;
 		   border-radius: 46px;
 		   padding: 6px 26px;
