@@ -3,12 +3,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <router-view></router-view>
-    <!-- <Main></Main> -->
   </div>
 </template>
 
 <script>
-import Main from '@/assets/pages/Main.vue'
+import Main from '@/assets/pages/main.vue'
+
 export default {
   name: 'app',
   components: {

@@ -1,42 +1,16 @@
 <template>
-	<div class="home">
+	<div class="millman" id="millman">
 		<div class="bg">
 			<div class="bg--color">
 		</div>
 		<div class="bg__title">
-			<span class="bg__title--text blink">Hi, I'm Tim<router-link to="/easteregg" class="bg--easteregg">.</router-link></span>
-			<a class="bg__title--button button">Click to get in touch</a>
+			<span class="bg__title--text">Competa Millman</span>
+			<a target="_blank" href="//www.millman.competa.com/" class="bg__title--button button">View online</a>
 		</div>
 		<i class="material-icons to-bottom" v-scroll-to="'.container'">expand_more</i>
 		</div>
 		<i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i>
 		<div class="container">
-			<div class="projects--title"> My projects </div>
-			<div class="projects">
-				<div class="projects__block--container">
-					<div class="projects__block projects__block--1"> </div>
-					<router-link to="/millman" class="projects__block--button button">Click for more</router-link>
-				</div>
-				<div class="projects__block--container">
-					<div class="projects__block projects__block--2"> </div>
-					<a class="projects__block--button button">Click for more</a>
-				</div>
-				<div class="projects__block--container">
-					<div class="projects__block projects__block--3"> </div>
-				</div>
-			</div>
-			<div class="about--title"> My Life </div>
-			<div class="about">
-				<div class="about__image"></div>
-				<div class="about__block">
-					<div class="about__block--1">
-						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
-					</div>
-					<div class="about__block--2">
-						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
-					</div>
-				</div>
-			</div>
 			<div class="social">
 				<div class="social__block">
 					<div class="social__block--icons">
@@ -59,9 +33,12 @@
 		</div>
 	</div>
 </template>
+<script>
+
+</script>
 <style lang="scss">
 @import '~@/main.scss';
-.home {
+.millman {
 	height: auto;
 	font-family: 'Montserrat', sans-serif;
 
@@ -139,7 +116,7 @@
 		width: 100%;
 		overflow: hidden;
 		height: 100%;
-		background-image: url("../images/laptop.jpeg");
+		background-image: url("../images/millman-lg.png");
 		background-size: cover;
 		display: flex;
 		justify-content: center;
@@ -157,8 +134,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-image: linear-gradient(to bottom right, $tim--secondair, $tim--black);
-			opacity: .6;
+			background-image: linear-gradient(to bottom left, $millman--green, $millman--red);
+			opacity: .9;
 			z-index: 2;
 		}
 	}
@@ -174,7 +151,7 @@
 				color: $tim--white;
 				width: 100%;
 				z-index: 3;
-				margin: 0 auto;
+				margin: 0 auto 50px;
 				text-align: center;
 
 				@media only screen and (max-width: $tablet) {
@@ -187,27 +164,9 @@
 				}
 			}
 
-			.blink{
-				white-space: nowrap;
-				overflow: hidden;
-				transform: translateY(-50%);
-				border-right: 2px solid rgba(255,255,255,.75);
-				animation: typewriter 3s steps(44) 1s 1 normal both, blinkTextCursor 600ms steps(40) infinite normal;
-			}
-
-			@keyframes typewriter{
-				from{width: 25%;}
-				to{width: 100%;}
-			}
-
-			@keyframes blinkTextCursor{
-				from{border-right-color: rgba(255,255,255,.75);}
-				to{border-right-color: transparent;}
-			}
-
 			&--button {
 				z-index: 3;
-				width: 200px;
+				width: 150px;
 				color: $tim--white !important;
 				border-color: $tim--white !important;
 
@@ -216,16 +175,6 @@
 					background-color: $tim--white !important;
 				}
 			}
-	}
-	
-	.bg--easteregg {
-		text-decoration: none;
-		color: $tim--white;
-		cursor: auto;
-
-		&:hover, &:visited, &:active {
-			color: $tim--white;
-		}
 	}
 
 	.container {
@@ -238,120 +187,6 @@
 		text-align: center;
         color: $tim--black;
 	}
-
-	.projects {
-		display: flex;
-		justify-content: space-around;
-		flex-direction: row;
-		height: auto;
-		width: 100%;
-        color: $tim--main;
-		padding: 40px 0 60px;
-		
-		@media only screen and (max-width: $tablet) {
-			flex-direction: column;
-			padding: 0 0 40px;
-        }
-		
-		&--title {
-			font-size: 2em;
-			font-weight: $heavy;
-			width: 100%;
-			padding: 50px 0 0;
-		}
-	
-		&__block {
-			display: flex;
-			color: $tim--main;
-			height: 250px;
-			border: 1px solid $tim--secondair;
-			margin-bottom: 35px;
-
-			&--container {
-				width: 30%;
-
-				@media only screen and (max-width: $tablet) {
-					width: 90%;
-					margin: 40px auto;
-				}
-			}
-			
-			&--1 {
-				background: url("../images/millman.png") no-repeat;		
-				background-size: cover;
-			}
-
-			&--2 {
-				background: url("../images/ftsf.png") no-repeat;
-				background-size: cover;	
-			}
-
-			&--3 {
-				background: url("../images/ftsf.png") no-repeat;
-				background-size: cover;	
-				filter: blur(5px);
-			}
-
-			&--button {
-				width: 150px;
-				color: $tim--main;
-
-				&:hover, &:visited, &:active {
-					color: $tim--main;
-				}
-			}
-		}
-	}
-
-	.about {
-		display: flex;
-		flex-direction: column;
-		height: auto;
-        width: 100%;
-        background-color: $tim--secondair;
-        padding: 50px 0;
-		
-		&--title {
-			font-size: 2em;
-			font-weight: $heavy;
-			width: 100%;
-			padding: 50px 0 0;
-            background-color: $tim--secondair;
-		}
-
-		&__image {
-			height: 200px;
-			width: 150px;
-			margin: 0 auto 50px;
-			background: url("../images/tim.png") no-repeat center;
-			background-size: contain;
-		}
-
-		&__block {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-
-			@media only screen and (max-width: $tablet) {
-				flex-direction: column;
-        	}
-
-			&--1, &--2 {
-				color: $tim--main;
-				font-size: 1.1em;
-				text-align: justify;
-				width: 400px;
-
-				@media only screen and (max-width: $tablet) {
-					width: 90%;
-					padding-bottom: 25px;
-					margin: 0 auto;
-					font-size: 1.1em;
-        		}
-			}
-		}
-	}
-
 	.social {
 		display: flex;
 		flex-direction: column;
@@ -414,13 +249,13 @@
 		border-width: 2px;
 		border-style: solid;
 		border-color: $tim--main;
-		text-decoration: none;
 		cursor: pointer;
 		border-radius: 46px;
 		padding: 10px 26px;
 		text-align: center;
 		margin: 0 auto;
 		transition-duration: 500ms;
+		text-decoration: none;
 
 		&:hover, &:focus {
 			background-color: $tim--main;

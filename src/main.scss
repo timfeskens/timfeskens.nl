@@ -1,8 +1,13 @@
-// Colors
+// Colors main
 $tim--white: #FFF;
 $tim--black: #000;
 $tim--main: #525252;
 $tim--secondair: #E7E3E3;
+
+// Colors Millman
+$millman--blue: #0080C5;
+$millman--green: #46D160;
+$millman--red: #FF4343;
 
 // Font-weights
 $regular: 400;
@@ -15,9 +20,9 @@ $phone-small: 380px;
 	// 'phone': 400px,
 	// 'phone-wide': 480px,
 	// 'phablet': 560px,
-	// 'tablet-small': 640px,
-	$tablet: 768px;
-	$tablet-wide: 1024px;
+$tablet-small: 640px;
+$tablet: 768px;
+$tablet-wide: 1024px;
 	// 'desktop': 1248px,
 	// 'desktop-hd': 1290px,
 	// 'desktop-wide': 1440px,
