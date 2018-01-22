@@ -1,0 +1,56 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    background-color: $tim--white;
+    padding: 50px 0;
+    
+    @media only screen and (max-width: $tablet) {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &__block {
+        
+        &--icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            @media only screen and (max-width: $tablet) {
+                justify-content: space-between;
+            }
+        }
+
+        .svg-icon {
+            height: 30px;
+            width: auto;
+            padding: 10px;
+            cursor: pointer;
+            fill: $tim--main;
+
+            @media only screen and (max-width: $tablet) {
+                height: 50px;
+            }
+
+            &--linkedin {
+                &:hover {
+                    fill: #007bb6;
+                }
+            }
+
+            &--github {
+                &:hover {
+                    fill: #000;
+                }
+            }
+
+            &--twitter {
+                &:hover {
+                    fill: #1da1f2;
+                }
+            }
+        }
+    }
+}

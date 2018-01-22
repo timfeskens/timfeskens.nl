@@ -6,36 +6,30 @@
 		<span class="bg--title">Oh, hi there<span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.part-2'">expand_more</i>
 		</div>
-
 		<div class="bg part-2">
 			<div class="bg--color">
 		</div>
 		<span class="bg--title">What are you doing here?<span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.part-3'">expand_more</i>
 		</div>
-		
 		<div class="bg part-3">
 			<div class="bg--color">
 		</div>
 		<span class="bg--title">What am I doing here?<span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.part-4'">expand_more</i>
 		</div>
-
 		<div class="bg part-4">
 			<div class="bg--color">
 		</div>
 		<span class="bg--title">Oh that's right!<span class="blink">|</span></span>
 		<i class="material-icons to-bottom" v-scroll-to="'.part-5'">expand_more</i>
 		</div>
-
 		<div class="bg part-5">
 			<div class="bg--color">
 		</div>
 		<span class="bg--title title-small">I'm just creeping.<span class="blink">|</span></span>
 		<div class="part-5--bottom"></div>
 		</div>
-
-
 		<i class="material-icons to-top--phone" v-scroll-to="'.part-1'">expand_less</i>
 	</div>
 </template>

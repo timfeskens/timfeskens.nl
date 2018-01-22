@@ -1,0 +1,30 @@
+@import '~@/components/colors.scss';
+@import '~@/components/breakpoints.scss';
+
+.scrolldown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $tim--white;
+    z-index: 3;
+    cursor: pointer;
+    opacity: .4;
+    transition-duration: 500ms;
+    position: absolute;
+    bottom: 50px;
+
+    &:hover, &:focus {
+        opacity: 1.0;
+        transition-duration: 500ms;
+    }
+
+    &--icon {
+        font-size: 3rem !important;
+    }
+
+    @media only screen and (max-width: $tablet) {
+            background: $tim--main;
+            border-radius: 46px;
+            padding: 20px 26px 0px;
+        }
+}
