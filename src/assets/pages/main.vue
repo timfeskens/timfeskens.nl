@@ -1,55 +1,85 @@
 <template>
 	<div class="home">
-		<div class="bg">
-			<div class="bg--color">
+		<div class="background background--image">
+			<div class="background background--color">
 		</div>
-		<div class="bg__title">
-			<span class="bg__title--text blink">Hi, I'm Tim<router-link to="/easteregg" class="bg--easteregg">.</router-link></span>
-			<a class="bg__title--button button">Click to get in touch</a>
+		<div class="header">
+			<h1 class="header__text blink">Hi, I'm Tim<router-link to="/easteregg" class="background__easteregg">.</router-link></h1>
+			<span class="header__button button button--inverted" v-scroll-to="'.contact'">Click to get in touch</span>
 		</div>
-		<div class="scrolldown" v-scroll-to="'.container'">
+		<div class="scroll-down" v-scroll-to="'.container'">
 			Learn more
-			<i class="material-icons scrolldown--icon">expand_more</i>
+			<i class="material-icons scroll-down__icon">expand_more</i>
 		</div>
 		</div>
-		<i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i>
 		<div class="container">
-			<div class="projects--title"> My projects </div>
+			<div class="projects__title"> My projects </div>
 			<div class="projects">
 				<div class="projects__block--container">
 					<div class="projects__block projects__block--1"> </div>
-					<router-link to="/millman" class="projects__block--button button">Click for more</router-link>
+					<router-link to="/millman" class="button">Click for more</router-link>
 				</div>
 				<div class="projects__block--container">
 					<div class="projects__block projects__block--2"> </div>
-					<router-link to="/ftsf" class="projects__block--button button">Click for more</router-link>
+					<router-link to="/ftsf" class="button">Click for more</router-link>
 				</div>
 				<div class="projects__block--container">
 					<div class="projects__block projects__block--3"> </div>
 				</div>
 			</div>
-			<div class="about--title"> My Life </div>
-			<div class="about">
-				<div class="about__image"></div>
-				<div class="about__block">
-					<div class="about__block--1">
+			<div class="skills__title"> In Progress </div>
+			<div class="skills">
+				<div class="skills__block">
+					<div class="skills__block--1">
 						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
 					</div>
-					<div class="about__block--2">
+					<div class="skills__block--2">
 						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
 					</div>
 				</div>
 			</div>
-			<div class="contact--title"> Get in contact </div>
-			<div class="contact">
-				IN PROGRESS (1/2)
+			<div class="about__title"> My Life </div>
+			<div class="about">
+				<div class="about__image"></div>
+				<div class="about__container">
+					<div class="about__block">
+						As you can tell by the title, I'm Tim! <br> I'm just a regular guy with a passion for coding and all Apple related stuff.<br> In my free time I like to go to the gym or drink some beer with friends. Of course I will never say no to a game of CoD or Battlefield. <br> I like to keep updated with the latest technology by reading posts on websites like Tweakers or Reddit. 
+					</div>
+					<div class="about__block">
+						Once I get more things to talk about I'll fill up this block too. Did you find the easter egg yet? It was kind of intented for my girlfriend but don't worry, you're allowed to loom for it too. Anyway lets be real, do people even read the second block? If you do though, I'm glad you did because otherwise I would be typing this for nothing.
+					</div>
+				</div>
 			</div>
-
-			<div class="contact--title"> More </div>
+			<div class="contact__title"> Get in touch </div>
 			<div class="contact">
-				IN PROGRESS (2/2)
-			</div>
+				<form @submit.prevent="validateBeforeSubmit">
+					<div class="contact__form">
+						<div class="contact__block">
+							<label>Email &#42;</label>
+							<p class="contact__container">
+								<input class="contact__input" v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="email" placeholder="Email" required oninvalid="this.setCustomValidity('Please enter valid email')" oninput="setCustomValidity('')">
+							</p>
 
+							<label>Name &#42;</label>
+							<p class="contact__container">
+								<input name="name" class="contact__input" v-model="name" v-validate="'required|alpha'" :class="{'input': true, 'is-danger': errors.has('name') }" type="text" placeholder="Name" required>
+							</p>
+
+							<label>Phone</label>
+							<p class="contact__container">
+								<input name="phone" class="contact__input" v-model="phone" v-validate="'numeric'" :class="{'input': true, 'is-danger': errors.has('phone') }" type="number" placeholder="Phone">
+							</p>
+						</div>
+						<div class="contact__block contact__block--right">
+							<label>Info &#42;</label>
+							<textarea name="info" class="contact__input contact__input--textarea" v-validate="'required|alpha'" :class="{'input': true, 'is-danger': errors.has('info') }" placeholder="Tell me about your project" required></textarea>
+						</div>
+					</div>
+					<p class="contact__container contact__container--button">
+						<button class="button button--inverted" type="submit">Submit</button>
+					</p>
+				</form>
+			</div>
 			<div class="footer">
 				<div class="footer__block">
 					<div class="footer__block--icons">
@@ -68,15 +98,34 @@
 					</div>
 				</div>
 			</div>
-			<i class="material-icons to-top--phone" v-scroll-to="'.bg'">expand_less</i>
+			<div v-scroll-to="'.background'">
+				<i class="material-icons  scroll-up">expand_less</i>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-   
-}
+  name: 'form-contact',
+  data: () => ({
+    email: '',
+    name: '',
+    phone: '',
+    info: ''
+  }),
+  methods: {
+    validateBeforeSubmit() {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          // eslint-disable-next-line
+          alert('Sorry this funtion is not functional yet');
+          return;
+        }
+      });
+    }
+  }
+};
 </script>
 <style lang="scss">
 @import '~@/main.scss';
@@ -84,312 +133,336 @@ export default {
 .home {
 	height: auto;
 	font-family: 'Montserrat', sans-serif;
+}
 
-	.to-top {
-		position: fixed;
-		right: 10px;
-		bottom: 10px;
-		font-size: 4em;
-		color: $tim--black;
-		z-index: 1;
-		cursor: pointer;
-		opacity: .3;
-		transition-duration: 500ms;
+.background {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+	z-index: 2;
 
-		&:hover, &:focus {
-			opacity: 1.0;
-			transition-duration: 500ms;
-		}
-
-		&--phone {
-			display: none;
-			font-size: 3em;
-			background: $tim--main;
-			color: $tim--white;
-			border-radius: 46px;
-			width: 50px;
-			padding: 6px 26px;
-			margin: 0 auto 50px;
-			cursor: pointer;
-			opacity: .3;
-
-			&:hover, &:focus {
-				opacity: 1.0;
-				transition-duration: 500ms;
-			}
-
-			@media only screen and (max-width: $tablet) {
-				display: block;
-			}
-		}
-
-		@media only screen and (max-width: $tablet) {
-           display: none;
-		}
-	}
-
-	.bg {
-		position: absolute;
-		top:0;
-		left:0;
-		width: 100%;
-		overflow: hidden;
-		height: 100%;
+	&--image {
 		background-image: url("../images/laptop.jpeg");
 		background-size: cover;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		z-index: 2;
+
 
 		@media only screen and (max-width: $tablet) {
 			justify-content: flex-start;
 		}
-
-		&--color {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-image: linear-gradient(to bottom right, $tim--secondair, $tim--black);
-			opacity: .6;
-			z-index: 2;
-		}
 	}
 
-	.bg__title {
-		display: flex;
-		flex-direction: column;
-
-			&--text{
-				position: relative;
-				font-size: 6em;
-				font-weight: $heavy;
-				color: $tim--white;
-				width: 100%;
-				z-index: 3;
-				margin: 0 auto;
-				text-align: center;
-
-				@media only screen and (max-width: $tablet) {
-					font-size: 4em;
-					margin: 200px auto 75px;
-				}
-				
-				@media only screen and (max-width: $tablet-small) {
-					font-size: 3.3em;
-				}
-			}
-
-			.blink{
-				white-space: nowrap;
-				overflow: hidden;
-				transform: translateY(-50%);
-				border-right: 2px solid rgba(255,255,255,.75);
-				animation: typewriter 2500ms steps(44) 1s 1 normal both, blinkTextCursor 600ms steps(40) infinite normal;
-			}
-
-			@keyframes typewriter{
-				from{width: 25%;}
-				to{width: 100%;}
-			}
-
-			@keyframes blinkTextCursor{
-				from{border-right-color: rgba(255,255,255,.75);}
-				to{border-right-color: transparent;}
-			}
-
-			&--button {
-				z-index: 3;
-				width: 200px;
-				color: $tim--white !important;
-				border-color: $tim--white !important;
-
-				&:hover, &:focus {
-					color: $tim--main !important;
-					background-color: $tim--white !important;
-				}
-
-				@media only screen and (max-width: $tablet) {
-					width: 230px;
-				}
-			}
+	&--color {
+		background-image: linear-gradient(to bottom right, $tim--secondair, $tim--tertiar);
+		opacity: .6;
 	}
-	
-	.bg--easteregg {
-		text-decoration: none;
-		color: $tim--white;
-		cursor: auto;
+}
 
-		&:hover, &:visited, &:active {
+.header {
+	display: flex;
+	flex-direction: column;
+
+		&__text{
+			position: relative;
+			font-size: 6em;
+			font-weight: $heavy;
 			color: $tim--white;
-		}
-	}
-
-	.container {
-		position: absolute;
-		top: 100%;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		width: 100%;
-		text-align: center;
-        color: $tim--black;
-	}
-
-	.projects {
-		display: flex;
-		justify-content: space-around;
-		flex-direction: row;
-		height: auto;
-		width: 100%;
-        color: $tim--main;
-		padding: 40px 0 60px;
-		
-		@media only screen and (max-width: $tablet) {
-			flex-direction: column;
-			padding: 0 0 40px;
-        }
-		
-		&--title {
-			font-size: 2em;
-			font-weight: $heavy;
 			width: 100%;
-			padding: 50px 0 0;
-		}
-	
-		&__block {
-			display: flex;
-			color: $tim--main;
-			height: 250px;
-			border: 1px solid $tim--secondair;
-			margin-bottom: 35px;
-
-			&--container {
-				width: 30%;
-
-				@media only screen and (max-width: $tablet) {
-					width: 90%;
-					margin: 40px auto;
-				}
-			}
-			
-			&--1 {
-				background: url("../images/millman.png") no-repeat;		
-				background-size: cover;
-			}
-
-			&--2 {
-				background: url("../images/ftsf.png") no-repeat;
-				background-size: cover;	
-			}
-
-			&--3 {
-				background: url("../images/ftsf.png") no-repeat;
-				background-size: cover;	
-				filter: blur(5px);
-			}
-
-			&--button {
-				width: 150px;
-				color: $tim--main;
-
-				&:hover, &:visited, &:active {
-					color: $tim--main;
-				}
-			}
-		}
-	}
-
-	.about {
-		display: flex;
-		flex-direction: column;
-		height: auto;
-        width: 100%;
-        background-color: $tim--secondair;
-        padding: 50px 0;
-		
-		&--title {
-			font-size: 2em;
-			font-weight: $heavy;
-			width: 100%;
-			padding: 50px 0 0;
-            background-color: $tim--secondair;
-		}
-
-		&__image {
-			height: 200px;
-			width: 150px;
-			margin: 0 auto 50px;
-			background: url("../images/tim.png") no-repeat center;
-			background-size: contain;
-		}
-
-		&__block {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
+			z-index: 3;
+			margin: 0 auto;
+			text-align: center;
 
 			@media only screen and (max-width: $tablet) {
-				flex-direction: column;
-        	}
-
-			&--1, &--2 {
-				color: $tim--main;
-				font-size: 1.1em;
-				text-align: justify;
-				width: 400px;
-
-				@media only screen and (max-width: $tablet) {
-					width: 90%;
-					padding-bottom: 25px;
-					margin: 0 auto;
-					font-size: 1.1em;
-        		}
+				font-size: 4em;
+				margin: 200px auto 75px;
+			}
+			
+			@media only screen and (max-width: $tablet-small) {
+				font-size: 3.3em;
 			}
 		}
+
+		.blink{
+			white-space: nowrap;
+			overflow: hidden;
+			transform: translateY(-50%);
+			border-right: 2px solid rgba(255,255,255,.75);
+			animation: typewriter 2500ms steps(44) 1s 1 normal both, blinkTextCursor 600ms steps(40) infinite normal;
+		}
+
+		@keyframes typewriter{
+			from{width: 25%;}
+			to{width: 100%;}
+		}
+
+		@keyframes blinkTextCursor{
+			from{border-right-color: rgba(255,255,255,.75);}
+			to{border-right-color: transparent;}
+		}
+
+		&__button {
+			z-index: 3;
+			width: 200px;
+			
+			@media only screen and (max-width: $tablet) {
+				width: 230px;
+			}
+		}
+}
+
+.background__easteregg {
+	text-decoration: none;
+	color: $tim--white;
+	cursor: auto;
+
+	&:hover, &:visited, &:active {
+		color: $tim--white;
+	}
+}
+
+.container {
+	position: absolute;
+	top: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+}
+
+.projects {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	height: auto;
+	width: 100%;
+	color: $tim--main;
+	padding: 40px 0 60px;
+	
+	@media only screen and (max-width: $tablet) {
+		flex-direction: column;
+		padding: 0 0 40px;
+	}
+	
+	&__title {
+		font-size: 2em;
+		color: $tim--title;
+		font-weight: $heavy;
+		width: 100%;
+		padding: 50px 0 0;
 	}
 
-	.contact {
+	&__block {
+		display: flex;
+		color: $tim--main;
+		height: 250px;
+		border: 1px solid $tim--secondair;
+		border-radius: 10px;
+		margin-bottom: 35px;
+
+		&--container {
+			width: 30%;
+
+			@media only screen and (max-width: $tablet) {
+				width: 90%;
+				margin: 40px auto;
+			}
+		}
+		
+		&--1 {
+			background: url("../images/millman.png") no-repeat;		
+			background-size: cover;
+		}
+
+		&--2 {
+			background: url("../images/ftsf.png") no-repeat;
+			background-size: cover;	
+		}
+
+		&--3 {
+			background: url("../images/millman.png") no-repeat;
+			background-size: cover;	
+			filter: blur(5px);
+		}
+	}
+}
+
+.skills {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: 100%;
+	background-color: $tim--main;
+	color: $tim--main-text;
+	padding: 50px 0;
+	
+	&__title {
+		font-size: 2em;
+		color: $tim--title;
+		font-weight: $heavy;
+		width: 100%;
+		padding: 50px 0 0;
+		background-color: $tim--main;
+	}
+
+	&__image {
+		height: 200px;
+		width: 150px;
+		margin: 0 auto 50px;
+		background: url("../images/tim.png") no-repeat center;
+		background-size: contain;
+	}
+
+	&__block {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
-		color: $tim--main;
-		height: auto;
-        width: 100%;
-        padding: 50px 0;
-		
-		&--title {
-			font-size: 2em;
-			font-weight: $heavy;
-			width: 100%;
-			padding: 50px 0 0;
+
+		@media only screen and (max-width: $tablet) {
+			flex-direction: column;
+		}
+
+		&--1, &--2 {
+			font-size: 1.1em;
+			text-align: justify;
+			width: 400px;
+
+			@media only screen and (max-width: $tablet) {
+				width: 90%;
+				padding-bottom: 25px;
+				margin: 0 auto;
+				font-size: 1.1em;
+			}
+		}
+	}
+}
+
+.about {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: 100%;
+	background-color: $tim--secondair;
+	padding: 50px 0;
+	
+	&__title {
+		font-size: 2em;
+		color: $tim--title;
+		font-weight: $heavy;
+		width: 100%;
+		padding: 50px 0 0;
+		background-color: $tim--secondair;
+	}
+
+	&__image {
+		height: 200px;
+		width: 150px;
+		margin: 0 auto 50px;
+		background: url("../images/tim.png") no-repeat center;
+		background-size: contain;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		@media only screen and (max-width: $tablet) {
+			flex-direction: column;
+		}
+	}
+	&__block {
+		color: $tim--main-text;
+		font-size: 1.1em;
+		text-align: justify;
+		width: 400px;
+		line-height: 23px;
+
+		@media only screen and (max-width: $tablet) {
+			width: 90%;
+			padding-bottom: 25px;
+			margin: 0 auto;
+			font-size: 1.1em;
+		}
+	}
+}
+
+.contact {
+	background-color: $tim--main;
+	color: $tim--main-text;
+	height: auto;
+	width: 100%;
+	padding: 20px 0;
+
+	&__form {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		@media only screen and (max-width: $tablet) {
+			flex-direction: column;
 		}
 	}
 
-	.button {
-		display: block;
-		border-width: 2px;
-		border-style: solid;
-		border-color: $tim--main;
-		text-decoration: none;
-		cursor: pointer;
-		border-radius: 46px;
-		padding: 10px 26px;
-		text-align: center;
-		margin: 0 auto;
-		transition-duration: 500ms;
+	&__block {
+		display: flex;
+		flex-direction: column;
+		padding: 0 20px;
 
-		&:hover, &:focus {
-			background-color: $tim--main;
-			transition-duration: 500ms;
-			color: $tim--secondair;
+		&--right {
+			margin: auto 0;
+
+			@media only screen and (max-width: $tablet) {
+				margin: auto auto;
+			}
+		}
+	}
+	
+	&__title {
+		background-color: $tim--main;
+		color: $tim--title;
+		font-size: 2em;
+		font-weight: $heavy;
+		width: 100%;
+		padding: 50px 0 0;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		width: 330px;
+		height: 80px;
+
+		@media only screen and (max-width: $phone-small) {
+			width: 290px;
 		}
 
-		@media only screen and (max-width: $tablet) {
-			font-size: 1.3em;
+		&--button {
+			margin-top: 30px;
+		}
+	}
+
+	&__input {
+		padding: 10px;
+		margin: 10px;
+		border: 1px solid $tim--main;
+		border-radius: 5px;
+		color: $tim--tertiar;
+
+		&--textarea {
+			height: 150px;
+			width: 310px;
+
+			@media only screen and (max-width: $phone-small) {
+				width: 230px;
+			}
 		}
 	}
 }

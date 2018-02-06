@@ -7,9 +7,9 @@
 			<span class="bg__title--text">Competa Millman</span>
 			<a target="_blank" href="//www.millman.competa.com/" class="bg__title--button button">View online</a>
 		</div>
-		<div class="scrolldown" v-scroll-to="'.container'">
+		<div class="scroll-down" v-scroll-to="'.container'">
 			Learn more
-			<i class="material-icons scrolldown--icon">expand_more</i>
+			<i class="material-icons scroll-down--icon">expand_more</i>
 		</div>
 		</div>
 		<i class="material-icons to-top" v-scroll-to="'.bg'">expand_less</i>

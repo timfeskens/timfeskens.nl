@@ -1,3 +1,6 @@
+@import '~@/variables/colors.scss';
+@import '~@/variables/breakpoints.scss';
+
 .footer {
     display: flex;
     flex-direction: column;
@@ -28,7 +31,7 @@
             width: auto;
             padding: 10px;
             cursor: pointer;
-            fill: $tim--main;
+            fill: $tim--tertiar;
 
             @media only screen and (max-width: $tablet) {
                 height: 50px;

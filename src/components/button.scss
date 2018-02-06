@@ -1,0 +1,41 @@
+@import '~@/variables/colors.scss';
+@import '~@/variables/breakpoints.scss';
+
+.button {
+	display: block;
+	width: 150px;
+	background: none;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $tim--button-main;
+	color: $tim--button-main;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 46px;
+	padding: 10px 26px;
+	text-align: center;
+	font-size: 1rem;
+	margin: 0 auto;
+	transition-duration: 500ms;
+
+	&:hover, &:focus {
+		background-color: $tim--button-main;
+		transition-duration: 500ms;
+		font-weight: 500;
+		color: $tim--button-secondair;
+	}
+
+	@media only screen and (max-width: $tablet) {
+		font-size: 1.3em;
+	}
+}
+
+.button--inverted {
+	border-color: $tim--button-secondair;
+	color: $tim--button-secondair;
+
+	&:hover, &:focus {
+		background-color: $tim--button-secondair;
+		color: $tim--button-main;
+	}
+}

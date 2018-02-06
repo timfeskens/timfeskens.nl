@@ -39,6 +39,7 @@
 body, html {
 	height: 100%;
 }
+
 .easteregg {
 	height: auto;
 	font-family: 'Montserrat', sans-serif;

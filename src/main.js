@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import Main from './assets/pages/main.vue'
 import vueScrollto from 'vue-scrollto'
+import VeeValidate from 'vee-validate';
 
 Vue.use(vueScrollto)
+Vue.use(VeeValidate)
 Vue.config.productionTip = false
 Vue.component('Main', Main)
 

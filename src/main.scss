@@ -1,4 +1,8 @@
-@import '~@/components/scrolldown.scss';
-@import '~@/components/colors.scss';
-@import '~@/components/breakpoints.scss';
+/* components */
 @import '~@/components/footer.scss';
+@import '~@/components/button.scss';
+@import '~@/components/scroll-buttons.scss';
+
+/* variables */
+@import '~@/variables/colors.scss';
+@import '~@/variables/breakpoints.scss';
