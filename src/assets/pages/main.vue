@@ -27,19 +27,22 @@
 					<div class="projects__block projects__block--3"> </div>
 				</div>
 			</div>
-			<div class="skills__title"> In Progress </div>
 			<div class="skills">
-				<div class="skills__block">
-					<div class="skills__block--1">
+			<div class="skills__title"> Skills </div>
+			<div class="skills__image-container">
+
+			</div>
+				<div class="skills__container">
+					<div class="skills__block">
 						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
 					</div>
-					<div class="skills__block--2">
+					<div class="skills__block">
 						Lorem ipsum dolor sit amet, mea ea laboramus hendrerit, dicam vivendum sententiae sit et. Pro ex persius legimus, ex duo falli choro salutatus. Qui lorem partiendo id. In pro vide rationibus. Vituperata incorrupte omittantur no vix, adhuc equidem propriae eu sed. Est ei velit vivendum honestatis, ea odio definitiones eos.
 					</div>
 				</div>
 			</div>
-			<div class="about__title"> My Life </div>
 			<div class="about">
+			<div class="about__title"> My Life </div>
 				<div class="about__image"></div>
 				<div class="about__container">
 					<div class="about__block">
@@ -57,7 +60,7 @@
 						<div class="contact__block">
 							<label>Email &#42;</label>
 							<p class="contact__container">
-								<input class="contact__input" v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="email" placeholder="Email" required oninvalid="this.setCustomValidity('Please enter valid email')" oninput="setCustomValidity('')">
+								<input name="email" class="contact__input" v-model="email" v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" type="email" placeholder="Email" required oninvalid="this.setCustomValidity('Please enter valid email')" oninput="setCustomValidity('')">
 							</p>
 
 							<label>Name &#42;</label>
@@ -72,7 +75,7 @@
 						</div>
 						<div class="contact__block contact__block--right">
 							<label>Info &#42;</label>
-							<textarea name="info" class="contact__input contact__input--textarea" v-validate="'required|alpha'" :class="{'input': true, 'is-danger': errors.has('info') }" placeholder="Tell me about your project" required></textarea>
+							<textarea name="info" class="contact__input contact__input--textarea" v-model="info" v-validate="'required|alpha'" :class="{'input': true, 'is-danger': errors.has('info') }" placeholder="Tell me about your project" required></textarea>
 						</div>
 					</div>
 					<p class="contact__container contact__container--button">
@@ -119,10 +122,16 @@ export default {
       this.$validator.validateAll().then((result) => {
         if (result) {
           // eslint-disable-next-line
-          alert('Sorry this funtion is not functional yet');
+		//   console.log('Sorry this funtion is not functional yet');
+		  console.log({email: this.email, name: this.name, phone: this.phone, info: this.info});
           return;
         }
       });
+    }
+  },
+  computed: {
+    getName() {
+      return this.name;
     }
   }
 };
@@ -132,7 +141,7 @@ export default {
 
 .home {
 	height: auto;
-	font-family: 'Montserrat', sans-serif;
+	font-family: Montserrat, sans-serif;
 }
 
 .background {
@@ -159,7 +168,7 @@ export default {
 	}
 
 	&--color {
-		background-image: linear-gradient(to bottom right, $tim--secondair, $tim--tertiar);
+		background-image: linear-gradient(to bottom right, $tim--main, $tim--tertiar);
 		opacity: .6;
 	}
 }
@@ -211,7 +220,7 @@ export default {
 			width: 200px;
 			
 			@media only screen and (max-width: $tablet) {
-				width: 230px;
+				width: 240px;
 			}
 		}
 }
@@ -307,7 +316,7 @@ export default {
 		color: $tim--title;
 		font-weight: $heavy;
 		width: 100%;
-		padding: 50px 0 0;
+		padding-bottom: 50px;
 		background-color: $tim--main;
 	}
 
@@ -319,7 +328,7 @@ export default {
 		background-size: contain;
 	}
 
-	&__block {
+	&__container {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
@@ -327,11 +336,13 @@ export default {
 		@media only screen and (max-width: $tablet) {
 			flex-direction: column;
 		}
-
-		&--1, &--2 {
+	}
+	
+	&__block {
 			font-size: 1.1em;
 			text-align: justify;
 			width: 400px;
+			line-height: 23px;
 
 			@media only screen and (max-width: $tablet) {
 				width: 90%;
@@ -339,7 +350,6 @@ export default {
 				margin: 0 auto;
 				font-size: 1.1em;
 			}
-		}
 	}
 }
 
@@ -356,7 +366,7 @@ export default {
 		color: $tim--title;
 		font-weight: $heavy;
 		width: 100%;
-		padding: 50px 0 0;
+		padding-bottom: 50px;
 		background-color: $tim--secondair;
 	}
 
